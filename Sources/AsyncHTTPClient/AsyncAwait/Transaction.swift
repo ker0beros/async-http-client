@@ -203,7 +203,8 @@ extension Transaction: HTTPExecutableRequest {
                 let dataStr = String(data: data, encoding: .utf8)
                 print(
                 """
-                Response body: \(dataStr ?? "")
+                Response body:
+                \(dataStr ?? "")
                 """
                 )
                 self.writeOnceAndOneTimeOnly(byteBuffer: byteBuffer)
@@ -217,7 +218,8 @@ extension Transaction: HTTPExecutableRequest {
                 let dataStr = String(data: data, encoding: .utf8)
                 print(
                 """
-                Response body: \(dataStr ?? "")
+                Response body:
+                \(dataStr ?? "")
                 """
                 )
                 self.writeOnceAndOneTimeOnly(byteBuffer: byteBuffer)
