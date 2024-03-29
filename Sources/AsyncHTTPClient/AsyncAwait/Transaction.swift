@@ -12,6 +12,7 @@
 //
 //===----------------------------------------------------------------------===//
 
+import Foundation
 import Logging
 import NIOConcurrencyHelpers
 import NIOCore
@@ -198,6 +199,14 @@ extension Transaction: HTTPExecutableRequest {
                 self.continueRequestBodyStream(allocator, next: next)
 
             case .byteBuffer(let byteBuffer):
+                let data = Data(buffer: byteBuffer)
+                let dataStr = String(data: data, encoding: .utf8)
+                logger.log(
+                    level: .info, 
+                """
+                dataStr buffer: \(dataStr)
+                """
+                )
                 self.writeOnceAndOneTimeOnly(byteBuffer: byteBuffer)
 
             case .none:
@@ -205,6 +214,14 @@ extension Transaction: HTTPExecutableRequest {
 
             case .sequence(_, _, let create):
                 let byteBuffer = create(allocator)
+                let data = Data(buffer: byteBuffer)
+                let dataStr = String(data: data, encoding: .utf8)
+                logger.log(
+                    level: .info,
+                """
+                dataStr sequence: \(dataStr)
+                """
+                )
                 self.writeOnceAndOneTimeOnly(byteBuffer: byteBuffer)
             }
 
