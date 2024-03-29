@@ -204,7 +204,7 @@ extension Transaction: HTTPExecutableRequest {
                 logger.log(
                     level: .info, 
                 """
-                dataStr buffer: \(dataStr)
+                dataStr buffer: \(dataStr ?? "")
                 """
                 )
                 self.writeOnceAndOneTimeOnly(byteBuffer: byteBuffer)
@@ -219,7 +219,7 @@ extension Transaction: HTTPExecutableRequest {
                 logger.log(
                     level: .info,
                 """
-                dataStr sequence: \(dataStr)
+                dataStr sequence: \(dataStr ?? "")
                 """
                 )
                 self.writeOnceAndOneTimeOnly(byteBuffer: byteBuffer)
