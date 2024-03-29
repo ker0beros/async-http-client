@@ -201,10 +201,9 @@ extension Transaction: HTTPExecutableRequest {
             case .byteBuffer(let byteBuffer):
                 let data = Data(buffer: byteBuffer)
                 let dataStr = String(data: data, encoding: .utf8)
-                logger.log(
-                    level: .info, 
+                print(
                 """
-                dataStr buffer: \(dataStr ?? "")
+                Response body: \(dataStr ?? "")
                 """
                 )
                 self.writeOnceAndOneTimeOnly(byteBuffer: byteBuffer)
@@ -216,10 +215,9 @@ extension Transaction: HTTPExecutableRequest {
                 let byteBuffer = create(allocator)
                 let data = Data(buffer: byteBuffer)
                 let dataStr = String(data: data, encoding: .utf8)
-                logger.log(
-                    level: .info,
+                print(
                 """
-                dataStr sequence: \(dataStr ?? "")
+                Response body: \(dataStr ?? "")
                 """
                 )
                 self.writeOnceAndOneTimeOnly(byteBuffer: byteBuffer)
