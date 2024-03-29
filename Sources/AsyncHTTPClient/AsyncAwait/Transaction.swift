@@ -203,7 +203,7 @@ extension Transaction: HTTPExecutableRequest {
                 let dataStr = String(data: data, encoding: .utf8)
                 print(
                 """
-                Response body:
+                Request body:
                 \(dataStr ?? "")
                 """
                 )
@@ -218,7 +218,7 @@ extension Transaction: HTTPExecutableRequest {
                 let dataStr = String(data: data, encoding: .utf8)
                 print(
                 """
-                Response body:
+                Request body:
                 \(dataStr ?? "")
                 """
                 )
